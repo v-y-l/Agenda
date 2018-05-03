@@ -6,13 +6,20 @@ import {
 
 import {
 	getPlanAction,
+	setPlanKeyAction,
+	setEventOptionsAction,
+	setScheduleAction
 } from './actions';
 
 import rsf from 'firebase/firebaseConfig';
 
 export function* getPlanData(api, action) {
   const plan = yield call(api.database.read, 'plan/'+action.key);
-  console.log(plan);
+  if (plan != null) {
+  	yield put(setPlanKeyAction(action.key));
+  	yield put(setEventOptionsAction(plan.eventOptions));
+  	yield put(setScheduleAction(plan.schedule));
+  }
 }
 
 // Individual exports for testing

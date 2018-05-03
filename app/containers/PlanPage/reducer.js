@@ -9,9 +9,8 @@ import {
   DEFAULT_ACTION,
 } from './constants';
 
-
 const initialState = fromJS({
-	planKey: "",
+	planKey: "fake-key",
 	eventOptions: [],
 	schedule: [],
 });
