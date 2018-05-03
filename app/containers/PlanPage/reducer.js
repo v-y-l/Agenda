@@ -4,12 +4,17 @@
  *
  */
 
-import { fromJS } from 'immutable';
+import { fromJS, List, Map } from 'immutable';
 import {
   DEFAULT_ACTION,
 } from './constants';
 
-const initialState = fromJS({});
+
+const initialState = fromJS({
+	planKey: "",
+	eventOptions: [],
+	schedule: [],
+});
 
 function planPageReducer(state = initialState, action) {
   switch (action.type) {
