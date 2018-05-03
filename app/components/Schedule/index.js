@@ -13,6 +13,7 @@ class Schedule extends React.Component { // eslint-disable-line react/prefer-sta
   render() {
     return (
       <div>
+      	Schedule
       </div>
     );
   }

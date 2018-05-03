@@ -16,6 +16,10 @@ import makeSelectPlanPage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 
+import EventOptions from 'components/EventOptions';
+import Schedule from 'components/Schedule';
+
+
 import {
   getPlanAction,
 } from './actions';
@@ -45,6 +49,8 @@ export class PlanPage extends React.Component { // eslint-disable-line react/pre
     return (
       <div>
         PlanPage
+        <EventOptions />
+        <Schedule />
       </div>
     );
   }

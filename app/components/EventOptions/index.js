@@ -13,6 +13,7 @@ class EventOptions extends React.Component { // eslint-disable-line react/prefer
   render() {
     return (
       <div>
+      	EventOptions
       </div>
     );
   }
