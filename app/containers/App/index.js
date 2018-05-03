@@ -32,12 +32,13 @@ export default function App() {
   return (
     <AppWrapper>
       <Helmet
-        titleTemplate="%s - What's Working, What's Not"
-        defaultTitle="What's Working, What's Not"
+        titleTemplate="%s - 10x"
+        defaultTitle="10x"
       >
-        <meta name="description" content="A React.js Boilerplate application" />
+        <meta name="description" content="10x" />
       </Helmet>
       <Switch>
+        <Route exact path="/plan/:key" component={WwWnPage} />
         <Route exact path="/:key" component={WwWnPage} />
         <Route path="/home" component={HomePage} />
         <Route path="/features" component={FeaturePage} />
