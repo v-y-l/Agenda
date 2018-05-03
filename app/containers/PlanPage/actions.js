@@ -1,6 +1,6 @@
 /*
  *
- * PlanContainer actions
+ * PlanPage actions
  *
  */
 

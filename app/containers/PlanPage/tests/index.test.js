@@ -1,9 +1,9 @@
 // import React from 'react';
 // import { shallow } from 'enzyme';
 
-// import { PlanContainer } from '../index';
+// import { PlanPage } from '../index';
 
-describe('<PlanContainer />', () => {
+describe('<PlanPage />', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(false);
   });

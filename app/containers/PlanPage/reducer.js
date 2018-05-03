@@ -1,6 +1,6 @@
 /*
  *
- * PlanContainer reducer
+ * PlanPage reducer
  *
  */
 
@@ -11,7 +11,7 @@ import {
 
 const initialState = fromJS({});
 
-function planContainerReducer(state = initialState, action) {
+function planPageReducer(state = initialState, action) {
   switch (action.type) {
     case DEFAULT_ACTION:
       return state;
@@ -20,4 +20,4 @@ function planContainerReducer(state = initialState, action) {
   }
 }
 
-export default planContainerReducer;
+export default planPageReducer;

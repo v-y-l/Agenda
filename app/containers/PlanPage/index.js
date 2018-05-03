@@ -1,6 +1,6 @@
 /**
  *
- * PlanContainer
+ * PlanPage
  *
  */
 
@@ -12,25 +12,26 @@ import { compose } from 'redux';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
-import makeSelectPlanContainer from './selectors';
+import makeSelectPlanPage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 
-export class PlanContainer extends React.Component { // eslint-disable-line react/prefer-stateless-function
+export class PlanPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
       <div>
+        PlanPage
       </div>
     );
   }
 }
 
-PlanContainer.propTypes = {
+PlanPage.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
-  planContainer: makeSelectPlanContainer(),
+  planPage: makeSelectPlanPage(),
 });
 
 function mapDispatchToProps(dispatch) {
@@ -41,11 +42,11 @@ function mapDispatchToProps(dispatch) {
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
-const withReducer = injectReducer({ key: 'planContainer', reducer });
-const withSaga = injectSaga({ key: 'planContainer', saga });
+const withReducer = injectReducer({ key: 'planPage', reducer });
+const withSaga = injectSaga({ key: 'planPage', saga });
 
 export default compose(
   withReducer,
   withSaga,
   withConnect,
-)(PlanContainer);
+)(PlanPage);

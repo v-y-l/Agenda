@@ -4,7 +4,7 @@ build
 node_modules
 stats.json
 secure.js
-firebaseApiKey.js
+secureConfig.js
 
 # Cruft
 .DS_Store

@@ -1,6 +1,6 @@
 /**
  *
- * Asynchronously loads the component for PlanContainer
+ * Asynchronously loads the component for PlanPage
  *
  */
 

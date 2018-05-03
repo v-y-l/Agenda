@@ -10,7 +10,7 @@ firebase.initializeApp(config);
 let myFirebase = firebase.database().ref();
 
 // Plans have their own name, event options, and a schedule of the selected events
-let plans = myFirebase.child("plans");
+let plans = myFirebase.child("plan");
 let promises = [];
 
 console.log("===========================");
