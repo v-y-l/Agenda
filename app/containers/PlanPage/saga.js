@@ -15,10 +15,14 @@ import rsf from 'firebase/firebaseConfig';
 
 export function* getPlanData(api, action) {
   const plan = yield call(api.database.read, 'plan/'+action.key);
+
   if (plan != null) {
   	yield put(setPlanKeyAction(action.key));
   	yield put(setEventOptionsAction(plan.eventOptions));
   	yield put(setScheduleAction(plan.schedule));
+  } else {
+  	// TODO: implement error handling
+  	console.log("Failed to get plan data!");
   }
 }
 
