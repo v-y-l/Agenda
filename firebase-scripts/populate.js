@@ -1,14 +1,7 @@
-let firebase = require("firebase");
-const { apiKey } = require("./secure");
+// Script initializes the firebase database with dummy data for the app has a useful initial state
 
-let config = {
-	apiKey: apiKey,
-	authDomain: "ww-wn-nxj.firebaseapp.com",
-	databaseURL: "https://ww-wn-nxj.firebaseio.com",
-	projectId: "ww-wn-nxj",
-	storageBucket: "ww-wn-nxj.appspot.com",
-	messagingSenderId: "480120212392"
-};
+let firebase = require("firebase");
+const { config } = require("./secure");
 
 // Initialize your Firebase app
 firebase.initializeApp(config);
@@ -16,28 +9,56 @@ firebase.initializeApp(config);
 // Reference to your entire Firebase database
 let myFirebase = firebase.database().ref();
 
-// Get a reference to the recommendations object of your Firebase.
-// Note: this doesn't exist yet. But when we write to our Firebase using
-// this reference, it will create this object for us!
-// let recommendations = myFirebase.child("recommendations");
+// Plans have their own name, event options, and a schedule of the selected events
+let plans = myFirebase.child("plans");
 
-// Push our first recommendation to the end of the list and assign it a
-// unique ID automatically.
+console.log("Creating a plan...");
 
-let sessions = myFirebase.child("sessions");
-
-let newWwWn = sessions.push({
-    "title": "Fidelity Academy - Boston",
-    "date":"05/01/2018",
+// Create a plan
+let plan = plans.push({
+    "title": "Default 10x",
 });
 
-const wwComments = [{"comment":"ww1"}, {"comment":"ww2"}, {"comment":"ww3"}];
-const wnComments = [{"comment":"wn1"}, {"comment":"wn2"}, {"comment":"wn3"}];
+// Populate it with event options
+console.log("Adding event options...");
 
-wwComments.forEach(function(comment){
-	newWwWn.child("ww").push(comment);
+function generateOption(title, time) {
+	return {
+		title,
+		time,
+	};
+};
+
+let eventOptions = plan.child("eventOptions");
+
+const options = [
+	generateOption("Judge",2),
+	generateOption("Present",5),
+	generateOption("Leave Feedback",2),
+];
+
+options.forEach(function(opt){
+	eventOptions.push(opt);
 });
 
-wnComments.forEach(function(comment){
-	newWwWn.child("wn").push(comment);
+// Populate it with a schedule
+console.log("Creating a sample schedule...");
+
+let schedule = plan.child("schedule");
+
+let generateEvent = generateOption;
+
+const sampleSchedule = [
+	generateEvent("Present",5),
+	generateEvent("Judge",2),
+	generateEvent("Judge",2),
+	generateEvent("Judge",2),
+	generateEvent("Leave Feedback",2),
+];
+
+sampleSchedule.forEach(function(event){
+	schedule.push(event, function(){
+		console.log("Added an event!");
+	});
 });
+
