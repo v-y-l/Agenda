@@ -21,6 +21,22 @@ import {
 } from './actions';
 
 export class PlanPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+  
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return {
+      ...nextProps.planPage
+    }
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      planKey: "",
+      eventOptions: [],
+      schedule: [],
+    }
+  }
+
   componentDidMount() {
     this.props.getPlanData(this.props.match.params.key);
   }

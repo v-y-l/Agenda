@@ -17,7 +17,6 @@ export function* getPlanData(api, action) {
   const plan = yield call(api.database.read, 'plan/'+action.key);
 
   if (plan != null) {
-  	console.log(plan);
   	yield put(setPlanKeyAction(action.key));
   	yield put(setEventOptionsAction(plan.eventOptions));
   	yield put(setScheduleAction(plan.schedule));
