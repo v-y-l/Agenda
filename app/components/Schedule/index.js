@@ -18,7 +18,11 @@ class Schedule extends React.Component { // eslint-disable-line react/prefer-sta
   render() {
     return (
       <Container>
-      	<ScheduleItem />
+      	<ScheduleItem title={"Judge"} time={3} background={"#72CCA7"} />
+      	<ScheduleItem title={"Judge"} time={3} background={"#72CCA7"} />
+      	<ScheduleItem title={"Judge"} time={3} background={"#10A296"} />
+      	<ScheduleItem title={"Judge"} time={3} background={"#FA987D"} />
+      	<ScheduleItem title={"Judge"} time={3} background={"rgb(234,96,99)"} />
       </Container>
     );
   }

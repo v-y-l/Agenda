@@ -11,24 +11,31 @@ import styled from 'styled-components';
 const Item = styled.div`
 	font-family: 'Raleway', sans-serif;
 	letter-spacing: 2px;
-	background:  #72CCA7;
-	padding-left: 10px;
-	padding-right: 10px;
+	background: ${props => props.background};
+	padding-left: 15px;
+	padding-right: 15px;
 	padding-top: 25px;
 	padding-bottom: 25px;
 	color: #f0f0f0;
-	text-align: center;
+	display:flex;
+	flex-direction:row;
+	justify-content:space-between;
+	border: 1px solid #f0f0f0;
 `;
 
-const Text = styled.span`
-	justify-content: center;
+const Section = styled.span`
+	margin-left: 10x;
+	margin-right: 10x;
 `;
 
 class ScheduleItem extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
+  	const { background, time, title } = this.props;
     return (
-      <Item>
-      	ScheduleItem 
+      <Item background={background}>
+      	<span> {time} min </span>
+      	<span> {title} </span>
+      	<span> x </span>
       </Item>
     );
   }
