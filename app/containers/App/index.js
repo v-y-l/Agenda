@@ -37,6 +37,7 @@ export default function App() {
         defaultTitle="10x"
       >
         <meta name="description" content="10x" />
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
       </Helmet>
       <Switch>
         <Route exact path="/plan/:key" component={PlanPage} />
