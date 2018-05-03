@@ -11,7 +11,9 @@ let myFirebase = firebase.database().ref();
 
 // Plans have their own name, event options, and a schedule of the selected events
 let plans = myFirebase.child("plans");
+let promises = [];
 
+console.log("===========================");
 console.log("Creating a plan...");
 
 // Create a plan
@@ -38,7 +40,7 @@ const options = [
 ];
 
 options.forEach(function(opt){
-	eventOptions.push(opt);
+	promises.push(eventOptions.push(opt));
 });
 
 // Populate it with a schedule
@@ -57,8 +59,11 @@ const sampleSchedule = [
 ];
 
 sampleSchedule.forEach(function(event){
-	schedule.push(event, function(){
-		console.log("Added an event!");
-	});
+	promises.push(schedule.push(event));
 });
 
+Promise.all(promises).then(function(values){
+	console.log("Done!");
+	console.log("===========================");
+	process.exit();
+});
