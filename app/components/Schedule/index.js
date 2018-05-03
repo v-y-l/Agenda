@@ -6,17 +6,20 @@
 
 import React from 'react';
 // import PropTypes from 'prop-types';
-// import styled from 'styled-components';
+import styled from 'styled-components';
 import ScheduleItem from 'components/ScheduleItem';
  
+const Container = styled.div`
+	padding-top: 10px;
+	width: 70%;
+`;
 
 class Schedule extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div>
-      	Schedule
+      <Container>
       	<ScheduleItem />
-      </div>
+      </Container>
     );
   }
 }
