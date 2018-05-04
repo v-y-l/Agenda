@@ -68,11 +68,11 @@ export class PlanPage extends React.Component { // eslint-disable-line react/pre
           eventOptions={this.state.eventOptions}
           handleAddScheduleItem={this.props.addScheduleItem}
         />
+        <StyledLink to={"/run/"+this.state.planKey}> Run </StyledLink>
         <Schedule 
           schedule={this.state.schedule} 
           handleDeleteScheduleItem={this.props.deleteScheduleItem}
         />
-        <StyledLink to={"/run/"+this.state.planKey}> Run </StyledLink>
       </div>
     );
   }

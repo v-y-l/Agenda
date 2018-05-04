@@ -24,8 +24,20 @@ import {
 
 export class RunPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return {
+      ...nextProps.runPage
+    }
+  }
+
   constructor(props) {
     super(props);
+
+    this.state = {
+      planKey: "",
+      atEvent: 0,
+      schedule: [],
+    }
   }
 
   componentDidMount() {
@@ -35,8 +47,7 @@ export class RunPage extends React.Component { // eslint-disable-line react/pref
   render() {
     return (
       <div>
-        Run page
-        <EventCard />
+        <EventCard time={3} title={"Judge"} isComplete={false} />
       </div>
     );
   }

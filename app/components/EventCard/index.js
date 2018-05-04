@@ -11,9 +11,12 @@ import React from 'react';
 
 class EventCard extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
+  	const { isComplete, time, title } = this.props;
     return (
       <div>
       	EventCard
+      	{ time }
+      	{ title }
       </div>
     );
   }
