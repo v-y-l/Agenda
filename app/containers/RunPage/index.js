@@ -44,16 +44,42 @@ export class RunPage extends React.Component { // eslint-disable-line react/pref
       atEvent: 0,
       schedule: [],
     }
+
+    this.nextEvent = this.nextEvent.bind(this);
   }
 
   componentDidMount() {
     this.props.getPlanData(this.props.match.params.key);
   }
 
+  nextEvent() {
+    this.setState({
+      atEvent: this.state.atEvent + 1,
+    });
+  }
+
   render() {
+    const { schedule } = this.state;
+    let events = schedule.map((evt, index)=>{
+      <EventCard
+        key={index} 
+        time={evt.time} 
+        title={evt.title} 
+        isLast={false} 
+        nextEvent={this.nextEvent} 
+      />
+    });
+    events.push(<EventCard 
+      key={schedule.length}
+      time={0} 
+      title={"10x Complete!"} 
+      isLast={true} 
+      nextEvent={()=>console.log("Plan complete")} 
+    />);
+
     return (
       <Container>
-        <EventCard time={3} title={"Judge"} isComplete={false} />
+        { events }
       </Container>
     );
   }

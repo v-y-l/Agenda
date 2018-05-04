@@ -26,6 +26,7 @@ const Card = styled.div`
 
 const Section = styled.div`
 	font-size: ${props=>props.size}px;
+	text-align: center;
 	color: white;
 `;
 
@@ -33,6 +34,7 @@ const backgroundColor = {
 	judge: "#10A296",
 	present: "#FA987D",
 	leavefeedback: "rgb(234,96,99)",
+	default: "#10A296", //TODO: add celebration animation
 };
 
 const getBackground = (title) => {
@@ -46,17 +48,25 @@ const renderer = ({ hours, minutes, seconds, completed }) => {
 
 class EventCard extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
-  	const { isComplete, time, title } = this.props;
-    return (
-      <Card backgroundColor={getBackground(title)} >
-      	<Section size={64}> { title } </Section>
-      	<Countdown 
-      		date={Date.now() + time*60*1000} 
-      		renderer={renderer}
-      		onComplete={()=>console.log('completo')}
-      	/>
-      </Card>
-    );
+  	const { isLast, time, title, nextEvent } = this.props;
+  	if (isLast) {
+	    return (
+	      <Card backgroundColor={getBackground("default")} >
+	      	<Section size={64}> { title } </Section>
+	      </Card>
+	    );
+  	} else {
+	    return (
+	      <Card backgroundColor={getBackground(title)} >
+	      	<Section size={64}> { title } </Section>
+	      	<Countdown 
+	      		date={Date.now() + time*60*1000} 
+	      		renderer={renderer}
+	      		onComplete={nextEvent}
+	      	/>
+	      </Card>
+	    );
+  	}
   }
 }
 
