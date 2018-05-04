@@ -10,6 +10,7 @@ import {
   SET_PLAN_KEY_ACTION,
   SET_EVENT_OPTIONS_ACTION,
   SET_SCHEDULE_ACTION,
+  DELETE_SCHEDULE_ITEM_ACTION,
 } from './constants';
 
 function defaultAction() {
@@ -46,6 +47,13 @@ function setScheduleAction(schedule) {
   }
 }
 
+function deleteScheduleItemAction(key) {
+  return {
+    type: DELETE_SCHEDULE_ITEM_ACTION,
+    key: key,
+  }
+}
+
 
 export {
   defaultAction,
@@ -53,4 +61,5 @@ export {
   setPlanKeyAction,
   setEventOptionsAction,
   setScheduleAction,
+  deleteScheduleItemAction,
 };

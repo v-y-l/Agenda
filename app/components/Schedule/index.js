@@ -28,13 +28,16 @@ const getBackground = (title) => {
 class Schedule extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   render() {
-  	const {schedule} = this.props;
-  	console.log(this.props);
+  	const {schedule, handleDeleteScheduleItem} = this.props;
   	const items = schedule.map(datum => {
+      const handleOnClick = () => {
+        handleDeleteScheduleItem(datum.key);
+      };
   		return <ScheduleItem 
   			key={datum.key} 
   			title={datum.title} 
   			time={datum.time} 
+        handleOnClick={handleOnClick}
   			background={getBackground(datum.title)} 
   		/>
   	});

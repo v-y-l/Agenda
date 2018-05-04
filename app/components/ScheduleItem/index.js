@@ -30,12 +30,12 @@ const Section = styled.span`
 
 class ScheduleItem extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
-  	const { background, time, title } = this.props;
+  	const { background, time, title, handleOnClick } = this.props;
     return (
       <Item background={background}>
       	<span> {time} min </span>
       	<span> {title} </span>
-      	<span> x </span>
+      	<span> <button onClick={handleOnClick}>x</button> </span>
       </Item>
     );
   }

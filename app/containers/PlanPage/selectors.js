@@ -8,6 +8,7 @@ const selectPlanPageDomain = (state) => state.get('planPage');
 /**
  * Other specific selectors
  */
+const selectPlanKey = (state) => state.get('planPage').get('planKey');
 
 
 /**
@@ -22,4 +23,5 @@ const makeSelectPlanPage = () => createSelector(
 export default makeSelectPlanPage;
 export {
   selectPlanPageDomain,
+  selectPlanKey,
 };
