@@ -61,7 +61,7 @@ export class RunPage extends React.Component { // eslint-disable-line react/pref
   render() {
     const { schedule } = this.state;
     let events = schedule.map((evt, index)=>{
-      <EventCard
+      return <EventCard
         key={index} 
         time={evt.time} 
         title={evt.title} 
@@ -76,10 +76,9 @@ export class RunPage extends React.Component { // eslint-disable-line react/pref
       isLast={true} 
       nextEvent={()=>console.log("Plan complete")} 
     />);
-
     return (
       <Container>
-        { events }
+        { events[this.state.atEvent] }
       </Container>
     );
   }
