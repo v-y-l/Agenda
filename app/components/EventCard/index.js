@@ -51,7 +51,7 @@ class EventCard extends React.Component { // eslint-disable-line react/prefer-st
       <Card backgroundColor={getBackground(title)} >
       	<Section size={64}> { title } </Section>
       	<Countdown 
-      		date={Date.now() + time*60*5000} 
+      		date={Date.now() + time*60*1000} 
       		renderer={renderer}
       		onComplete={()=>console.log('completo')}
       	/>
