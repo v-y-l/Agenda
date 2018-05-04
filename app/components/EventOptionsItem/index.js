@@ -42,6 +42,7 @@ class EventOptionsItem extends React.Component { // eslint-disable-line react/pr
   	}
   	this.handleChange = this.handleChange.bind(this);
   	this.handleFocus = this.handleFocus.bind(this);
+  	this.handleBlur = this.handleBlur.bind(this);
   }
 
   handleChange(evt) {
@@ -56,6 +57,19 @@ class EventOptionsItem extends React.Component { // eslint-disable-line react/pr
   	evt.target.select();
   }
 
+  handleBlur(evt) {
+  	if (evt.target.value < 1) {
+  		this.setState({
+  			time: 5
+  		});
+  	}
+  	if (evt.target.value > 60) {
+  		this.setState({
+  			time: 60
+  		});
+  	}
+  }
+
   render() {
   	const { background, time, title, handleOnClick } = this.props;
     return (
@@ -64,7 +78,8 @@ class EventOptionsItem extends React.Component { // eslint-disable-line react/pr
       		<Input type="text" 
 	      		onFocus={this.handleFocus} 
 	      		value={this.state.time} 
-	      		onChange={this.handleChange} 
+	      		onChange={this.handleChange}
+	      		onBlur={this.handleBlur}
 	      	/> min 
 	    </span>
       	<span> {title} </span>
