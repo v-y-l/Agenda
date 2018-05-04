@@ -9,6 +9,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
@@ -19,12 +21,26 @@ import saga from './saga';
 import EventOptions from 'components/EventOptions';
 import Schedule from 'components/Schedule';
 
-
 import {
   getPlanAction,
   deleteScheduleItemAction,
   addScheduleItemAction,
 } from './actions';
+
+const StyledLink = styled(Link)`
+  display: inline-block;
+  border-radius: 3px;
+  padding: 0.5rem 0;
+  margin: 0.5rem 1rem;
+  width: 11rem;
+  background: palevioletred;
+  color: white;
+  border: 2px solid white;
+  text-decoration: none;
+  text-align: center;
+`;
+
+
 
 export class PlanPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   
@@ -58,6 +74,7 @@ export class PlanPage extends React.Component { // eslint-disable-line react/pre
           schedule={this.state.schedule} 
           handleDeleteScheduleItem={this.props.deleteScheduleItem}
         />
+        <StyledLink to={"/run/"+this.state.planKey}> Run </StyledLink>
       </div>
     );
   }

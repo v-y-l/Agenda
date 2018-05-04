@@ -20,6 +20,7 @@ export class RunPage extends React.Component { // eslint-disable-line react/pref
   render() {
     return (
       <div>
+        Run page
       </div>
     );
   }

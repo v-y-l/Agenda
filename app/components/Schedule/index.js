@@ -18,7 +18,6 @@ const backgroundColor = {
 	judge: "#10A296",
 	present: "#FA987D",
 	leavefeedback: "rgb(234,96,99)",
-	//run: "#72CCA7"
 };
 
 const getBackground = (title) => {
