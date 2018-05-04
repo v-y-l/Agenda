@@ -26,16 +26,22 @@ const getBackground = (title) => {
 }
 
 class EventOptions extends React.Component { // eslint-disable-line react/prefer-stateless-function
+
   render() {
+  	const { eventOptions, handleAddScheduleItem } = this.props;
+  	const options = eventOptions.map((option)=> {
+  		return <EventOptionsItem 
+  			key={option.key} 
+  			title={option.title} 
+  			time={option.time} 
+	        handleAddScheduleItem={handleAddScheduleItem}
+  			background={getBackground(option.title)} 
+      	/> 
+  	});
+
     return (
       <Container>
-      	<EventOptionsItem 
-  			key={"abc"} 
-  			title={"Present"} 
-  			time={5} 
-	        handleAddScheduleItem={this.props.handleAddScheduleItem}
-  			background={getBackground("Present")} 
-      	/>
+      	{ options }
       </Container>
     );
   }
