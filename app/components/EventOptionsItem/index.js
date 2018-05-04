@@ -71,7 +71,10 @@ class EventOptionsItem extends React.Component { // eslint-disable-line react/pr
   }
 
   render() {
-  	const { background, time, title, handleOnClick } = this.props;
+  	const { background, time, title, handleAddScheduleItem } = this.props;
+  	const handleOnClick = () => {
+  		handleAddScheduleItem(this.state.time, title);
+  	}
     return (
       <Item background={background}>
       	<span> 

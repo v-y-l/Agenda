@@ -23,6 +23,7 @@ import Schedule from 'components/Schedule';
 import {
   getPlanAction,
   deleteScheduleItemAction,
+  addScheduleItemAction,
 } from './actions';
 
 export class PlanPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -49,10 +50,14 @@ export class PlanPage extends React.Component { // eslint-disable-line react/pre
   render() {
     return (
       <div>
-        <EventOptions />
+        <EventOptions
+          eventOptions={this.state.eventOptions}
+          handleAddScheduleItem={this.props.addScheduleItem}
+        />
         <Schedule 
           schedule={this.state.schedule} 
-          handleDeleteScheduleItem={this.props.deleteScheduleItem} />
+          handleDeleteScheduleItem={this.props.deleteScheduleItem}
+        />
       </div>
     );
   }
@@ -71,6 +76,7 @@ function mapDispatchToProps(dispatch) {
     dispatch,
     getPlanData: (key) => dispatch(getPlanAction(key)),
     deleteScheduleItem: (key) => dispatch(deleteScheduleItemAction(key)),
+    addScheduleItem: (time, title) => dispatch(addScheduleItemAction(time, title)),
   };
 }
 

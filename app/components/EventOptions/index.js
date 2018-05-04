@@ -33,7 +33,7 @@ class EventOptions extends React.Component { // eslint-disable-line react/prefer
   			key={"abc"} 
   			title={"Present"} 
   			time={5} 
-	        handleOnClick={(key)=>console.log(key)}
+	        handleAddScheduleItem={this.props.handleAddScheduleItem}
   			background={getBackground("Present")} 
       	/>
       </Container>
