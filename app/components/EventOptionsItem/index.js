@@ -30,7 +30,7 @@ const Section = styled.span`
 
 const Input = styled.input`
     background-color:transparent;
-    width: 24px;
+    width: ${props => props.time < 10 ? "12px" : "24px"};
 `;
 
 class EventOptionsItem extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -80,6 +80,7 @@ class EventOptionsItem extends React.Component { // eslint-disable-line react/pr
 	      		value={this.state.time} 
 	      		onChange={this.handleChange}
 	      		onBlur={this.handleBlur}
+	      		time={this.state.time}
 	      	/> min 
 	    </span>
       	<span> {title} </span>
