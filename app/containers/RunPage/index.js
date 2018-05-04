@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
+import styled from 'styled-components';
 
 import EventCard from 'components/EventCard';
 
@@ -21,6 +22,11 @@ import saga from './saga';
 import {
   getPlanAction,
 } from './actions';
+
+const Container = styled.div`
+  display:flex;
+  justify-content:center;
+`;
 
 export class RunPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   
@@ -46,9 +52,9 @@ export class RunPage extends React.Component { // eslint-disable-line react/pref
 
   render() {
     return (
-      <div>
+      <Container>
         <EventCard time={3} title={"Judge"} isComplete={false} />
-      </div>
+      </Container>
     );
   }
 }
