@@ -40,13 +40,8 @@ const getBackground = (title) => {
 }
 
 const renderer = ({ hours, minutes, seconds, completed }) => {
-  if (completed) {
-    // Render a completed state
-    return <div> Call callback </div>;
-  } else {
     // Render a countdown
     return <Section size={76}> {minutes}:{seconds} </Section>
-  }
 };
 
 class EventCard extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -56,8 +51,9 @@ class EventCard extends React.Component { // eslint-disable-line react/prefer-st
       <Card backgroundColor={getBackground(title)} >
       	<Section size={64}> { title } </Section>
       	<Countdown 
-      		date={Date.now() + time*60*1000} 
+      		date={Date.now() + time*60*5000} 
       		renderer={renderer}
+      		onComplete={()=>console.log('completo')}
       	/>
       </Card>
     );
