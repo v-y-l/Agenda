@@ -43,8 +43,8 @@ class EventCard extends React.Component { // eslint-disable-line react/prefer-st
   	const { isComplete, time, title } = this.props;
     return (
       <Card backgroundColor={getBackground(title)} >
-      	<Section size={42}> { title } </Section>
-      	<Section size={64}> { time } </Section>
+      	<Section size={64}> { title } </Section>
+      	<Section size={76}> { time } </Section>
       </Card>
     );
   }
