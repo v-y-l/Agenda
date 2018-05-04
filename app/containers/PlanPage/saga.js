@@ -40,7 +40,6 @@ export function* deleteScheduleItem(api, action) {
   // update schedule redux
   const plan = yield call(api.database.read, 'plan/'+planKey);
   yield put(setScheduleAction(plan.schedule));
-
 }
 
 // Individual exports for testing
