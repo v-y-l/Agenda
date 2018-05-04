@@ -26,16 +26,21 @@ const getBackground = (title) => {
 }
 
 class Schedule extends React.Component { // eslint-disable-line react/prefer-stateless-function
+
   render() {
-
-
+  	const {schedule} = this.props;
+  	console.log(this.props);
+  	const items = schedule.map(datum => {
+  		return <ScheduleItem 
+  			key={datum.key} 
+  			title={datum.title} 
+  			time={datum.time} 
+  			background={getBackground(datum.title)} 
+  		/>
+  	});
     return (
       <Container>
-      	<ScheduleItem title={"Judge"} time={3} background={getBackground("Judge")} />
-      	<ScheduleItem title={"Judge"} time={3} background={getBackground("Judge")} />
-      	<ScheduleItem title={"Judge"} time={3} background={getBackground("Judge")} />
-      	<ScheduleItem title={"Present"} time={3} background={getBackground("Present")} />
-      	<ScheduleItem title={"Leave Feedback"} time={3} background={getBackground("Leave Feedback")} />
+      	{items}
       </Container>
     );
   }

@@ -50,7 +50,7 @@ export class PlanPage extends React.Component { // eslint-disable-line react/pre
       <div>
         PlanPage
         <EventOptions />
-        <Schedule />
+        <Schedule schedule={this.state.schedule} />
       </div>
     );
   }
