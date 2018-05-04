@@ -49,7 +49,6 @@ export class PlanPage extends React.Component { // eslint-disable-line react/pre
   render() {
     return (
       <div>
-        PlanPage
         <EventOptions />
         <Schedule 
           schedule={this.state.schedule} 
