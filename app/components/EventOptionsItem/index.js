@@ -46,7 +46,7 @@ class EventOptionsItem extends React.Component { // eslint-disable-line react/pr
 
   handleChange(evt) {
   	let newTime = +evt.target.value;
-  	if (!Number.isInteger(newTime) || newTime < 1 || newTime > 20) {
+  	if (!Number.isInteger(newTime) || newTime < 0 || newTime > 100) {
   		newTime = 5;
   	}
   	this.setState({time: newTime});
@@ -60,7 +60,13 @@ class EventOptionsItem extends React.Component { // eslint-disable-line react/pr
   	const { background, time, title, handleOnClick } = this.props;
     return (
       <Item background={background}>
-      	<span> <Input type="text" onFocus={this.handleFocus} value={this.state.time} onChange={this.handleChange} /> min </span>
+      	<span> 
+      		<Input type="text" 
+	      		onFocus={this.handleFocus} 
+	      		value={this.state.time} 
+	      		onChange={this.handleChange} 
+	      	/> min 
+	    </span>
       	<span> {title} </span>
       	<span> <button onClick={handleOnClick}>+</button> </span>
       </Item>

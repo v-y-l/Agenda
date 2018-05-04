@@ -11,6 +11,7 @@ import {
   SET_EVENT_OPTIONS_ACTION,
   SET_SCHEDULE_ACTION,
   DELETE_SCHEDULE_ITEM_ACTION,
+  ADD_SCHEDULE_ITEM_ACTION,
 } from './constants';
 
 function defaultAction() {
@@ -54,6 +55,14 @@ function deleteScheduleItemAction(key) {
   }
 }
 
+function addScheduleItemAction(time, title) {
+  return {
+    type: ADD_SCHEDULE_ITEM_ACTION,
+    time: time,
+    title: title,
+  }
+}
+
 
 export {
   defaultAction,
@@ -62,4 +71,5 @@ export {
   setEventOptionsAction,
   setScheduleAction,
   deleteScheduleItemAction,
+  addScheduleItemAction,
 };

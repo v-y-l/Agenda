@@ -3,6 +3,7 @@ import { take, call, put, select, takeLatest } from 'redux-saga/effects';
 import {
   GET_PLAN_ACTION,
   DELETE_SCHEDULE_ITEM_ACTION,
+  ADD_SCHEDULE_ITEM_ACTION,
 } from './constants';
 
 import {
@@ -42,9 +43,24 @@ export function* deleteScheduleItem(api, action) {
   yield put(setScheduleAction(plan.schedule));
 }
 
+export function* addScheduleItem(api, action) {
+  // delete schedule item
+  const planKey = yield select(selectPlanKey);
+  const scheduleItem = {
+    title: action.title,
+    time: action.time,
+  }
+  const response = yield call(api.database.create, 'plan/'+planKey+'/schedule', scheduleItem);
+
+  // update schedule redux
+  const plan = yield call(api.database.read, 'plan/'+planKey);
+  yield put(setScheduleAction(plan.schedule));
+}
+
 // Individual exports for testing
 export default function* defaultSaga() {
   // See example in containers/HomePage/saga.js
   yield takeLatest(GET_PLAN_ACTION, getPlanData, rsf);
   yield takeLatest(DELETE_SCHEDULE_ITEM_ACTION, deleteScheduleItem, rsf);
+  yield takeLatest(ADD_SCHEDULE_ITEM_ACTION, addScheduleItem, rsf);
 }
