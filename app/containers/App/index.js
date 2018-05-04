@@ -13,7 +13,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import HomePage from 'containers/HomePage/Loadable';
 import FeaturePage from 'containers/FeaturePage/Loadable';
-import WwWnPage from 'containers/WwWnPage/Loadable';
+// import WwWnPage from 'containers/WwWnPage/Loadable';
 import PlanPage from 'containers/PlanPage/Loadable';
 import RunPage from 'containers/RunPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
@@ -41,10 +41,10 @@ export default function App() {
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
       </Helmet>
       <Switch>
-        <Route exact path="/plan/:key" component={PlanPage} />
-        <Route exact path="/run/:key" component={RunPage} />
-        <Route exact path="/:key" component={WwWnPage} />
+        <Route path="/run/:key" component={RunPage} />
         <Route path="/home" component={HomePage} />
+        <Route path="/plan/:key" component={PlanPage} />
+        
         <Route path="/features" component={FeaturePage} />
         <Route path="" component={NotFoundPage} />
       </Switch>
