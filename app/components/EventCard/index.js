@@ -13,6 +13,7 @@ class EventCard extends React.Component { // eslint-disable-line react/prefer-st
   render() {
     return (
       <div>
+      	EventCard
       </div>
     );
   }

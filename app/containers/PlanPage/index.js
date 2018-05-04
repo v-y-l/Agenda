@@ -40,8 +40,6 @@ const StyledLink = styled(Link)`
   text-align: center;
 `;
 
-
-
 export class PlanPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   
   static getDerivedStateFromProps(nextProps, prevState) {
