@@ -45,7 +45,7 @@ const OptionsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 400px;
+  width: 500px;
 `;
 
 const ScheduleContainer = styled.div`
@@ -60,7 +60,6 @@ const StyledLink = styled(Link)`
   display: inline-block;
   padding: 0.5rem 0;
   margin-top: 15px;
-  margin-left: 50px;
   width: 11rem;
   background: palevioletred;
   color: white;

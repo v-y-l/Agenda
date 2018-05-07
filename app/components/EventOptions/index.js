@@ -11,6 +11,9 @@ import EventOptionsItem from 'components/EventOptionsItem';
 
 const Container = styled.div`
 	padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 	width: 70%;
 `;
 
