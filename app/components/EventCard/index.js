@@ -43,8 +43,9 @@ const Section = styled.span`
 	text-align: center;
 	color: white;
 	display: flex;
-	justify-content: space-between;
-
+	flex-direction:row;
+	justify-content: space-evenly;
+	width:100%;
 `;
 
 const backgroundColor = {
@@ -87,9 +88,12 @@ class EventCard extends React.Component { // eslint-disable-line react/prefer-st
 		      		onComplete={nextEvent}
 		      	/>
 		      	<Section>
-			      	<Icon icon={paus} />
-		      		<Icon icon={play} />
-			      	<Icon icon={cw} />
+		      		<span>
+				      	<Icon icon={paus} />
+				    </span>
+				    <span>
+			      		<Icon icon={cw} />
+			      	</span>
 			    </Section>
 		      </Card>
 		      <span style={{ color: getBackground(title) }}>
