@@ -48,7 +48,7 @@ const renderer = ({ hours, minutes, seconds, completed }) => {
 
 class EventCard extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
-  	const { isLast, time, title, nextEvent } = this.props;
+  	const { isLast, time, title, nextEvent, description } = this.props;
   	if (isLast) {
 	    return (
 	      <Card backgroundColor={getBackground("default")} >
@@ -59,6 +59,7 @@ class EventCard extends React.Component { // eslint-disable-line react/prefer-st
 	    return (
 	      <Card backgroundColor={getBackground(title)} >
 	      	<Section size={64}> { title } </Section>
+	      	<div> { description } </div>
 	      	<Countdown 
 	      		date={Date.now() + time*60*1000} 
 	      		renderer={renderer}

@@ -60,11 +60,18 @@ export class RunPage extends React.Component { // eslint-disable-line react/pref
 
   render() {
     const { schedule } = this.state;
+    //TODO: Add a feature to create events w/ descriptors
+    const descriptions = {
+      "Judge": "Greg Kunkel",
+      "Present": "Victor presents on project" , 
+      "Leave Feedback": "Please leave feedback for Victor Lin"
+    };
     let events = schedule.map((evt, index)=>{
       return <EventCard
         key={index} 
         time={evt.time} 
         title={evt.title} 
+        description={descriptions[evt.title]}
         isLast={false} 
         nextEvent={this.nextEvent} 
       />
