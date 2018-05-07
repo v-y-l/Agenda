@@ -36,16 +36,19 @@ const PageContainer = styled.div`
 const StyledLink = styled(Link)`
     font-size: ${props=>props.size}px;
     text-align: center;
-    color: white;
+    color: black;
     display: flex;
     justify-content: space-evenly;
+    &:hover {
+      color: white;
+    }
 `;
 
 
 const Text = styled.span`
     font-size: ${props=>props.size}px;
     text-align: center;
-    color: white;
+    color: black;
     display: flex;
     flex-direction:row;
     justify-content: space-evenly;
@@ -58,8 +61,8 @@ const Button = styled.button`
   margin-top: 15px;
   width: 11rem;
   background: palevioletred;
-  color: white;
-  border: 2px solid white;
+  color: black;
+  border: 2px solid black;
   text-decoration: none;
   text-align: center;
   border-radius: 10px;
@@ -82,7 +85,7 @@ const Input = styled.input`
   width: 200px;
   font-size: 24px;
   text-align: left;
-  text: white;
+  text: black;
 `;
 
 export class LandingPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -135,7 +138,7 @@ export class LandingPage extends React.Component { // eslint-disable-line react/
             <Input type="text" placeholder="e.g. 5" />
           </FormItem>
           <FormItem>
-            <Label> Session Length in Mins </Label>
+            <Label> Session in Mins </Label>
             <Input type="text" placeholder="e.g. 20" />
           </FormItem>
           <Button> Create New Plan </Button>
