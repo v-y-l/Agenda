@@ -64,6 +64,7 @@ const Button = styled.button`
     transition: all .2s ease-in-out;
     &:hover {
         transform: ${props => props.disabled ? "scale(1)" : "scale(1.3)"};
+        cursor: ${props => props.disabled ? "not-allowed" : "pointer"};
     };
     &:active {
         opacity: 0.2;
