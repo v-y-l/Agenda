@@ -31,7 +31,6 @@ const Card = styled.span`
     font-family: 'Raleway', sans-serif;
     letter-spacing: 2px;
     color: #f0f0f0;
-    margin-top: 45px;
     display:flex;
     flex-direction:column;
     justify-content: space-evenly;
