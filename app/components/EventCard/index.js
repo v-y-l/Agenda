@@ -11,6 +11,8 @@ import Countdown from 'react-countdown-now';
 import { Icon } from 'react-icons-kit';
 import { cw, paus, play, thinRight, thinLeft } from 'react-icons-kit/entypo';
 import { fadeIn } from 'react-animations';
+import Confetti from 'react-confetti';
+
 
 const CardContainer = styled.div`
     font-family: 'Raleway', sans-serif;
@@ -187,6 +189,7 @@ class EventCard extends React.Component { // eslint-disable-line react/prefer-st
     }
     return (
         <CardContainer>
+            {isLast && <Confetti height="800px" width="1000px" />}
             <Button disabled={isFirst} color={getBackground(title)} onClick={prevEvent}>
                 <Icon size={42} icon={thinLeft} />
             </Button>
