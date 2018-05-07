@@ -33,16 +33,11 @@ const PageContainer = styled.div`
 `;
 
 const StyledLink = styled(Link)`
-  display: inline-block;
-  padding: 0.5rem 0;
-  margin-top: 15px;
-  width: 11rem;
-  background: palevioletred;
-  color: white;
-  border: 2px solid white;
-  text-decoration: none;
-  text-align: center;
-  border-radius: 10px;
+    font-size: ${props=>props.size}px;
+    text-align: center;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
 `;
 
 
@@ -83,7 +78,7 @@ export class LandingPage extends React.Component { // eslint-disable-line react/
           <StyledLink 
             to={"/plan/"+plan.key}
             key={plan.key}
-            size={64}>
+            size={32}>
               {plan.title}
           </StyledLink>
         );
