@@ -22,6 +22,7 @@ import { getPlansAction } from './actions';
 const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 820px;
   margin-top: 50px;
   background: #DDDDDD;
@@ -62,6 +63,12 @@ const Button = styled.button`
   text-decoration: none;
   text-align: center;
   border-radius: 10px;
+`;
+
+const FormItem = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 `;
 
 export class LandingPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -105,18 +112,18 @@ export class LandingPage extends React.Component { // eslint-disable-line react/
         </PageContainer>
         <PageContainer>
           <Text size={64}> New Plan </Text>
-          <div>
+          <FormItem>
             <label> Plan Name </label>
             <input type="text" placeholder="e.g. Fidelity 10x" />
-          </div>
-          <div>
+          </FormItem>
+          <FormItem>
             <label> Number of Presentors </label>
             <input type="text" placeholder="e.g. 5" />
-          </div>
-          <div>
+          </FormItem>
+          <FormItem>
             <label> Session Length in Mins </label>
             <input type="text" placeholder="e.g. 20" />
-          </div>
+          </FormItem>
           <Button> Create New Plan </Button>
         </PageContainer>
       </div>
