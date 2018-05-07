@@ -67,6 +67,7 @@ const backgroundColor = {
     present: "#FA987D",
     leavefeedback: "rgb(234,96,99)",
     default: "#10A296", //TODO: add celebration animation
+    "10xcomplete!": "#10A296", //TODO: add celebration animation
 };
 
 const getBackground = (title) => {
