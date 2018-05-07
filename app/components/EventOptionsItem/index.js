@@ -6,7 +6,11 @@
 
 import React from 'react';
 // import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import { fadeIn } from 'react-animations';
+
+const fadeInAnimation = keyframes`${fadeIn}`;
+
 
 const Item = styled.div`
 	font-family: 'Raleway', sans-serif;
@@ -24,6 +28,7 @@ const Item = styled.div`
 	border: 1px solid #f0f0f0;
   border-radius: 3px;
   margin-bottom: 2px;
+  animation: 0.5s ${fadeInAnimation};
 `;
 
 const Section = styled.span`
@@ -38,6 +43,31 @@ const Input = styled.input`
 
 const InputBox = styled.div`
     border-bottom: 1px dotted white;
+    &:focus {
+        outline: none;
+    };
+    transition: all .2s ease-in-out;
+    &:hover {
+        transform: scale(1.2);
+        cursor: pointer;
+    };
+    &:active {
+        opacity: 0.2;
+    }
+`;
+
+const Button = styled.button`
+    &:focus {
+        outline: none;
+    };
+    transition: all .2s ease-in-out;
+    &:hover {
+        transform: scale(1.3);
+        cursor: pointer;
+    };
+    &:active {
+        opacity: 0.2;
+    }
 `;
 
 class EventOptionsItem extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -95,7 +125,7 @@ class EventOptionsItem extends React.Component { // eslint-disable-line react/pr
 	      	/> <label htmlFor={optionKey}> min </label>
 	    </InputBox>
       	<span> {title} </span>
-      	<span> <button onClick={handleOnClick}>+</button> </span>
+      	<span> <Button onClick={handleOnClick}>+</Button> </span>
       </Item>
     );
   }

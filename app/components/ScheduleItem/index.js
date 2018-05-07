@@ -7,10 +7,9 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
-import { fadeIn, fadeOut } from 'react-animations';
+import { fadeIn } from 'react-animations';
 
 const fadeInAnimation = keyframes`${fadeIn}`;
-const fadeOutAnimation = keyframes`${fadeOut}`;
 
 const Item = styled.div`
 	font-family: 'Raleway', sans-serif;
