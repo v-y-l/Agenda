@@ -32,7 +32,7 @@ const Card = styled.span`
 	flex-direction:column;
 	justify-content: space-evenly;
 	align-items: center;
-	background: ${props=>props.backgroundColor};
+	background: ${props=> props.backgroundColor};
 	width: 50%;
 	height: 500px;
 	border-radius: 3px;
@@ -46,6 +46,10 @@ const Section = styled.span`
 	flex-direction:row;
 	justify-content: space-evenly;
 	width:100%;
+`;
+
+const Button = styled.button`
+	color: ${props => props.color ? props.color : "white"}
 `;
 
 const backgroundColor = {
@@ -65,8 +69,18 @@ const renderer = ({ hours, minutes, seconds, completed }) => {
 };
 
 class EventCard extends React.Component { // eslint-disable-line react/prefer-stateless-function
+  constructor(props) {
+  	super(props);
+  	this.state = {
+  		isPaused: false,
+  	}
+  }
+
   render() {
   	const { isLast, time, title, nextEvent, description } = this.props;
+
+    const activityIcon = this.state.isPaused ? <Icon icon={play} /> : <Icon icon={paus} />;
+
   	if (isLast) {
 	    return (
 	      <Card backgroundColor={getBackground("default")} >
@@ -76,9 +90,9 @@ class EventCard extends React.Component { // eslint-disable-line react/prefer-st
   	} else {
 	    return (
 	      <CardContainer>
-  		      <span style={{ color: getBackground(title) }}>
+  		      <Button color={getBackground(title)}>
 			    <Icon size={42} icon={thinLeft} />
-			  </span>
+			  </Button>
 		      <Card backgroundColor={getBackground(title)} >
 		      	<Section size={64}> { title } </Section>
 		      	<Section size={24}> { description } </Section>
@@ -88,17 +102,17 @@ class EventCard extends React.Component { // eslint-disable-line react/prefer-st
 		      		onComplete={nextEvent}
 		      	/>
 		      	<Section>
-		      		<span>
-				      	<Icon icon={paus} />
-				    </span>
-				    <span>
+		      		<Button>
+				      	{activityIcon}
+				    </Button>
+				    <Button>
 			      		<Icon icon={cw} />
-			      	</span>
+			      	</Button>
 			    </Section>
 		      </Card>
-		      <span style={{ color: getBackground(title) }}>
+		      <Button color={getBackground(title)}>
 			    <Icon size={42} icon={thinRight} />
-			  </span>
+			  </Button>
 		  </CardContainer>
 	    );
   	}

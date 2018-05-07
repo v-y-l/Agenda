@@ -63,7 +63,7 @@ export class RunPage extends React.Component { // eslint-disable-line react/pref
     //TODO: Add a feature to create events w/ descriptors
     const descriptions = {
       "Judge": "Greg Kunkel",
-      "Present": "Victor presents on project" , 
+      "Present": "Victor Lin on 10x project" , 
       "Leave Feedback": "Please leave feedback for Victor Lin"
     };
     let events = schedule.map((evt, index)=>{
