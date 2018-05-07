@@ -6,7 +6,11 @@
 
 import React from 'react';
 // import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import { fadeIn, fadeOut } from 'react-animations';
+
+const fadeInAnimation = keyframes`${fadeIn}`;
+const fadeOutAnimation = keyframes`${fadeOut}`;
 
 const Item = styled.div`
 	font-family: 'Raleway', sans-serif;
@@ -23,6 +27,21 @@ const Item = styled.div`
 	border: 1px solid #f0f0f0;
 	border-radius: 3px;
 	margin-bottom: 2px;
+    animation: 0.5s ${fadeInAnimation};
+`;
+
+const Button = styled.button`
+    &:focus {
+        outline: none;
+    };
+    transition: all .2s ease-in-out;
+    &:hover {
+        transform: scale(1.3);
+        cursor: pointer;
+    };
+    &:active {
+        opacity: 0.2;
+    }
 `;
 
 const Section = styled.span`
@@ -37,7 +56,7 @@ class ScheduleItem extends React.Component { // eslint-disable-line react/prefer
       <Item background={background}>
       	<span> {time} min </span>
       	<span> {title} </span>
-      	<span> <button onClick={handleOnClick}>x</button> </span>
+      	<span> <Button onClick={handleOnClick}>x</Button> </span>
       </Item>
     );
   }
