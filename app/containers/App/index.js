@@ -44,7 +44,6 @@ export default function App() {
         <Route path="/run/:key" component={RunPage} />
         <Route path="/home" component={HomePage} />
         <Route path="/plan/:key" component={PlanPage} />
-        
         <Route path="/features" component={FeaturePage} />
         <Route path="" component={NotFoundPage} />
       </Switch>

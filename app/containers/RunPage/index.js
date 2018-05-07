@@ -46,6 +46,7 @@ export class RunPage extends React.Component { // eslint-disable-line react/pref
     }
 
     this.nextEvent = this.nextEvent.bind(this);
+    this.prevEvent = this.prevEvent.bind(this);
   }
 
   componentDidMount() {
@@ -58,11 +59,17 @@ export class RunPage extends React.Component { // eslint-disable-line react/pref
     });
   }
 
+  prevEvent() {
+    this.setState({
+      atEvent: this.state.atEvent - 1,
+    });
+  }
+
   render() {
     const { schedule } = this.state;
     //TODO: Add a feature to create events w/ descriptors
     const descriptions = {
-      "Judge": "Greg Kunkel",
+      "Judge": "",
       "Present": "Victor Lin on 10x project" , 
       "Leave Feedback": "Please leave feedback for Victor Lin"
     };
@@ -72,7 +79,9 @@ export class RunPage extends React.Component { // eslint-disable-line react/pref
         time={evt.time} 
         title={evt.title} 
         description={descriptions[evt.title]}
+        isFirst={index==0}
         isLast={false} 
+        prevEvent={this.prevEvent}
         nextEvent={this.nextEvent} 
       />
     });
@@ -82,6 +91,7 @@ export class RunPage extends React.Component { // eslint-disable-line react/pref
       title={"10x Complete!"} 
       isLast={true} 
       nextEvent={()=>console.log("Plan complete")} 
+      prevEvent={this.prevEvent}
     />);
     return (
       <Container>

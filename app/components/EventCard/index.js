@@ -124,7 +124,15 @@ class EventCard extends React.Component { // eslint-disable-line react/prefer-st
   }
 
   render() {
-    const { isLast, time, title, nextEvent, description } = this.props;
+    const { 
+        isFirst, 
+        isLast, 
+        time, 
+        title, 
+        nextEvent, 
+        prevEvent, 
+        description
+    } = this.props;
 
     const activityIcon = this.state.isPaused ? <Icon size={36} icon={play} /> : <Icon size={36} icon={paus} />;
     let countdown;
@@ -145,19 +153,15 @@ class EventCard extends React.Component { // eslint-disable-line react/prefer-st
             onComplete={nextEvent}
         />);
     }
-
+    let card;
     if (isLast) {
-        return (
+        card = (
           <Card backgroundColor={getBackground("default")} >
             <Section size={64}> { title } </Section>
           </Card>
         );
     } else {
-        return (
-          <CardContainer>
-              <Button color={getBackground(title)}>
-                <Icon size={42} icon={thinLeft} />
-              </Button>
+       card = (
               <Card backgroundColor={getBackground(title)} >
                 <Section size={64}> { title } </Section>
                 <Section size={24}> { description } </Section>
@@ -171,12 +175,20 @@ class EventCard extends React.Component { // eslint-disable-line react/prefer-st
                     </Button>
                 </Section>
               </Card>
-              <Button color={getBackground(title)} onClick={nextEvent}>
-                <Icon size={42} icon={thinRight} />
-              </Button>
-          </CardContainer>
+
         );
     }
+    return (
+        <CardContainer>
+            <Button disabled={isFirst} color={getBackground(title)} onClick={prevEvent}>
+                <Icon size={42} icon={thinLeft} />
+            </Button>
+            {card}
+            <Button color={getBackground(title)} onClick={nextEvent}>
+                <Icon size={42} icon={thinRight} />
+            </Button>
+        </CardContainer>
+    );
   }
 }
 
