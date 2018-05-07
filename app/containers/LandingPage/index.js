@@ -9,6 +9,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
@@ -16,6 +18,43 @@ import makeSelectLandingPage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import { getPlansAction } from './actions';
+
+const PageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 820px;
+  margin-top: 50px;
+  background: #DDDDDD;
+  border-radius: 3px;
+  padding-top: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 40px;
+`;
+
+const StyledLink = styled(Link)`
+  display: inline-block;
+  padding: 0.5rem 0;
+  margin-top: 15px;
+  width: 11rem;
+  background: palevioletred;
+  color: white;
+  border: 2px solid white;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 10px;
+`;
+
+
+const Text = styled.span`
+    font-size: ${props=>props.size}px;
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction:row;
+    justify-content: space-evenly;
+    width:100%;
+`;
 
 export class LandingPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   
@@ -40,14 +79,21 @@ export class LandingPage extends React.Component { // eslint-disable-line react/
     let plansList = [];
     if (this.state.plans != null && this.state.plans.length > 0) {
       for (let plan of this.state.plans) {
-        plansList.push(<div key={plan.key}>{plan.title}</div>);
+        plansList.push(
+          <StyledLink 
+            to={"/plan/"+plan.key}
+            key={plan.key}
+            size={64}>
+              {plan.title}
+          </StyledLink>
+        );
       }
     }
     return (
-      <div>
-        LandingPage
+      <PageContainer>
+        <Text size={64}> Browse 10x Plans </Text>
         {plansList}
-      </div>
+      </PageContainer>
     );
   }
 }

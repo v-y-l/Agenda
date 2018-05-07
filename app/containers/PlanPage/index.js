@@ -113,7 +113,6 @@ export class PlanPage extends React.Component { // eslint-disable-line react/pre
         <Text size={64}> {this.state.planName} </Text>
         <ContentContainer>
           <OptionsContainer>
-
             <Text size={48}> Add Events </Text>
             <EventOptions
               eventOptions={this.state.eventOptions}
