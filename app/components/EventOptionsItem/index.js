@@ -16,6 +16,7 @@ const Item = styled.div`
 	padding-right: 15px;
 	padding-top: 25px;
 	padding-bottom: 25px;
+  width: 300px;
 	color: #f0f0f0;
 	display:flex;
 	flex-direction:row;
@@ -29,8 +30,12 @@ const Section = styled.span`
 `;
 
 const Input = styled.input`
-    background-color:transparent;
+    background-color: transparent;
     width: ${props => props.time < 10 ? "12px" : "24px"};
+`;
+
+const InputBox = styled.div`
+    border-bottom: 1px dotted white;
 `;
 
 class EventOptionsItem extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -71,21 +76,22 @@ class EventOptionsItem extends React.Component { // eslint-disable-line react/pr
   }
 
   render() {
-  	const { background, time, title, handleAddScheduleItem } = this.props;
+  	const { background, time, title, optionKey, handleAddScheduleItem } = this.props;
   	const handleOnClick = () => {
   		handleAddScheduleItem(this.state.time, title);
-  	}
+  	};
     return (
       <Item background={background}>
-      	<span> 
+      	<InputBox> 
       		<Input type="text" 
+            id={optionKey}
 	      		onFocus={this.handleFocus} 
 	      		value={this.state.time} 
 	      		onChange={this.handleChange}
 	      		onBlur={this.handleBlur}
 	      		time={this.state.time}
-	      	/> min 
-	    </span>
+	      	/> <label htmlFor={optionKey}> min </label>
+	    </InputBox>
       	<span> {title} </span>
       	<span> <button onClick={handleOnClick}>+</button> </span>
       </Item>

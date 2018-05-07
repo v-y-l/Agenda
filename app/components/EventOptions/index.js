@@ -30,7 +30,8 @@ class EventOptions extends React.Component { // eslint-disable-line react/prefer
   	const { eventOptions, handleAddScheduleItem } = this.props;
   	const options = eventOptions.map((option)=> {
   		return <EventOptionsItem 
-  			key={option.key} 
+  			key={option.key}
+        optionKey={option.key}
   			title={option.title} 
   			time={option.time} 
 	        handleAddScheduleItem={handleAddScheduleItem}
