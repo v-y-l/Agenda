@@ -6,10 +6,11 @@
 
 import React from 'react';
 // import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Countdown from 'react-countdown-now';
 import { Icon } from 'react-icons-kit';
 import { cw, paus, play, thinRight, thinLeft } from 'react-icons-kit/entypo';
+import { fadeIn } from 'react-animations';
 
 const CardContainer = styled.div`
     font-family: 'Raleway', sans-serif;
@@ -22,6 +23,8 @@ const CardContainer = styled.div`
     width: 100%;
     height: 800px;
 `;
+
+const fadeInAnimation = keyframes`${fadeIn}`;
 
 const Card = styled.span`
     font-family: 'Raleway', sans-serif;
@@ -36,6 +39,7 @@ const Card = styled.span`
     width: 50%;
     height: 500px;
     border-radius: 3px;
+    animation: 1.5s ${fadeInAnimation};
 `;
 
 const Section = styled.span`
@@ -186,7 +190,7 @@ class EventCard extends React.Component { // eslint-disable-line react/prefer-st
                 <Icon size={42} icon={thinLeft} />
             </Button>
             {card}
-            <Button color={getBackground(title)} onClick={nextEvent}>
+            <Button disabled={isLast} color={getBackground(title)} onClick={nextEvent}>
                 <Icon size={42} icon={thinRight} />
             </Button>
         </CardContainer>
