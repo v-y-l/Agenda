@@ -51,6 +51,19 @@ const Text = styled.span`
     width:100%;
 `;
 
+const Button = styled.button`
+  display: inline-block;
+  padding: 0.5rem 0;
+  margin-top: 15px;
+  width: 11rem;
+  background: palevioletred;
+  color: white;
+  border: 2px solid white;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 10px;
+`;
+
 export class LandingPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -85,10 +98,28 @@ export class LandingPage extends React.Component { // eslint-disable-line react/
       }
     }
     return (
-      <PageContainer>
-        <Text size={64}> Browse 10x Plans </Text>
-        {plansList}
-      </PageContainer>
+      <div>
+        <PageContainer>
+          <Text size={64}> Browse 10x Plans </Text>
+          {plansList}
+        </PageContainer>
+        <PageContainer>
+          <Text size={64}> New Plan </Text>
+          <div>
+            <label> Plan Name </label>
+            <input type="text" placeholder="e.g. Fidelity 10x" />
+          </div>
+          <div>
+            <label> Number of Presentors </label>
+            <input type="text" placeholder="e.g. 5" />
+          </div>
+          <div>
+            <label> Session Length in Mins </label>
+            <input type="text" placeholder="e.g. 20" />
+          </div>
+          <Button> Create New Plan </Button>
+        </PageContainer>
+      </div>
     );
   }
 }
