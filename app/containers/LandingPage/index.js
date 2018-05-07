@@ -68,7 +68,21 @@ const Button = styled.button`
 const FormItem = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
+`;
+
+const Label = styled.label`
+  width: 200px;
+  padding-right: 10px;
+  text-align: right;
+  font-size: 24px;
+`;
+
+const Input = styled.input`
+  width: 200px;
+  font-size: 24px;
+  text-align: left;
+  text: white;
 `;
 
 export class LandingPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -113,16 +127,16 @@ export class LandingPage extends React.Component { // eslint-disable-line react/
         <PageContainer>
           <Text size={64}> New Plan </Text>
           <FormItem>
-            <label> Plan Name </label>
-            <input type="text" placeholder="e.g. Fidelity 10x" />
+            <Label> Plan Name </Label>
+            <Input type="text" placeholder="e.g. Fidelity 10x" />
           </FormItem>
           <FormItem>
-            <label> Number of Presentors </label>
-            <input type="text" placeholder="e.g. 5" />
+            <Label> Number of Presentors </Label>
+            <Input type="text" placeholder="e.g. 5" />
           </FormItem>
           <FormItem>
-            <label> Session Length in Mins </label>
-            <input type="text" placeholder="e.g. 20" />
+            <Label> Session Length in Mins </Label>
+            <Input type="text" placeholder="e.g. 20" />
           </FormItem>
           <Button> Create New Plan </Button>
         </PageContainer>
