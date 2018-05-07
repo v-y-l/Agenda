@@ -7,6 +7,7 @@
 import {
   DEFAULT_ACTION,
   GET_PLANS_ACTION,
+  SET_PLANS_ACTION,
 } from './constants';
 
 function defaultAction() {
@@ -21,7 +22,15 @@ function getPlansAction() {
   };
 }
 
+function setPlansAction(plans) {
+  return {
+    type: SET_PLANS_ACTION,
+    plans: plans,
+  };
+}
+
 export  {
 	defaultAction,
 	getPlansAction,
+  setPlansAction,
 }

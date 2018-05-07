@@ -5,7 +5,8 @@ import {
 } from './constants';
 
 import {
-	getPlansAction
+	getPlansAction,
+	setPlansAction,
 } from './actions';
 
 import { 
@@ -16,7 +17,7 @@ import rsf from 'firebase/firebaseConfig';
 
 export function* getPlansData(api, action) {
 	const plans = yield call(api.database.read, 'plan/');
-	console.log(plans);
+	yield put(setPlansAction(plans));
 }
 
 // Individual exports for testing
