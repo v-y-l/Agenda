@@ -8,6 +8,9 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Countdown from 'react-countdown-now';
+import { Icon } from 'react-icons-kit';
+import { cw, paus, play, thinRight } from 'react-icons-kit/entypo';
+
 
 const Card = styled.div`
 	font-family: 'Raleway', sans-serif;
@@ -65,6 +68,10 @@ class EventCard extends React.Component { // eslint-disable-line react/prefer-st
 	      		renderer={renderer}
 	      		onComplete={nextEvent}
 	      	/>
+	      	<Icon icon={paus} />
+	      	<Icon icon={play} />
+	      	<Icon icon={cw} />
+	      	<Icon icon={thinRight} />
 	      </Card>
 	    );
   	}
