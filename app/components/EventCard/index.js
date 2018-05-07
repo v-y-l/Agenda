@@ -9,10 +9,21 @@ import React from 'react';
 import styled from 'styled-components';
 import Countdown from 'react-countdown-now';
 import { Icon } from 'react-icons-kit';
-import { cw, paus, play, thinRight } from 'react-icons-kit/entypo';
+import { cw, paus, play, thinRight, thinLeft } from 'react-icons-kit/entypo';
 
+const CardContainer = styled.div`
+	font-family: 'Raleway', sans-serif;
+	letter-spacing: 2px;
+	color: #f0f0f0;
+	margin-top: 45px;
+	display:flex;
+	justify-content: space-evenly;
+	align-items: center;
+	width: 100%;
+	height: 800px;
+`;
 
-const Card = styled.div`
+const Card = styled.span`
 	font-family: 'Raleway', sans-serif;
 	letter-spacing: 2px;
 	color: #f0f0f0;
@@ -27,10 +38,13 @@ const Card = styled.div`
 	border-radius: 3px;
 `;
 
-const Section = styled.div`
+const Section = styled.span`
 	font-size: ${props=>props.size}px;
 	text-align: center;
 	color: white;
+	display: flex;
+	justify-content: space-between;
+
 `;
 
 const backgroundColor = {
@@ -60,19 +74,28 @@ class EventCard extends React.Component { // eslint-disable-line react/prefer-st
 	    );
   	} else {
 	    return (
-	      <Card backgroundColor={getBackground(title)} >
-	      	<Section size={64}> { title } </Section>
-	      	<div> { description } </div>
-	      	<Countdown 
-	      		date={Date.now() + time*60*1000} 
-	      		renderer={renderer}
-	      		onComplete={nextEvent}
-	      	/>
-	      	<Icon icon={paus} />
-	      	<Icon icon={play} />
-	      	<Icon icon={cw} />
-	      	<Icon icon={thinRight} />
-	      </Card>
+	      <CardContainer>
+  		      <span style={{ color: getBackground(title) }}>
+			    <Icon size={42} icon={thinLeft} />
+			  </span>
+		      <Card backgroundColor={getBackground(title)} >
+		      	<Section size={64}> { title } </Section>
+		      	<Section size={24}> { description } </Section>
+		      	<Countdown 
+		      		date={Date.now() + time*60*1000} 
+		      		renderer={renderer}
+		      		onComplete={nextEvent}
+		      	/>
+		      	<Section>
+			      	<Icon icon={paus} />
+		      		<Icon icon={play} />
+			      	<Icon icon={cw} />
+			    </Section>
+		      </Card>
+		      <span style={{ color: getBackground(title) }}>
+			    <Icon size={42} icon={thinRight} />
+			  </span>
+		  </CardContainer>
 	    );
   	}
   }
