@@ -58,15 +58,16 @@ const ScheduleContainer = styled.div`
 
 const StyledLink = styled(Link)`
   display: inline-block;
-  border-radius: 3px;
   padding: 0.5rem 0;
-  margin: 0.5rem 1rem;
+  margin-top: 15px;
+  margin-left: 50px;
   width: 11rem;
   background: palevioletred;
   color: white;
   border: 2px solid white;
   text-decoration: none;
   text-align: center;
+  border-radius: 10px;
 `;
 
 export class PlanPage extends React.Component { // eslint-disable-line react/prefer-stateless-function

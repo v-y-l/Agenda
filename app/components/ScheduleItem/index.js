@@ -21,6 +21,8 @@ const Item = styled.div`
 	flex-direction:row;
 	justify-content:space-between;
 	border: 1px solid #f0f0f0;
+	border-radius: 3px;
+	margin-bottom: 2px;
 `;
 
 const Section = styled.span`
