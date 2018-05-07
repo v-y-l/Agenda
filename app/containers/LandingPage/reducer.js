@@ -17,7 +17,7 @@ const initialState = fromJS({
 const convertData = (rawData) => {
 	let data = List();
 	if (!rawData) {
-	return data;
+		return data;
 	}
 	for (let key of Object.keys(rawData)) {
 		let datum = Map({
@@ -34,7 +34,7 @@ function landingPageReducer(state = initialState, action) {
     case DEFAULT_ACTION:
       return state;
     case SET_PLANS_ACTION:
-      return { plans: convertData(action.plans)};
+      return state.set("plans", convertData(action.plans));
     default:
       return state;
   }

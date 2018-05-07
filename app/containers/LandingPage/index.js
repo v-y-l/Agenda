@@ -19,14 +19,34 @@ import { getPlansAction } from './actions';
 
 export class LandingPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return {
+      ...nextProps.landingPage,
+    }
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      plans: [],
+    };
+  }
+
   componentDidMount() {
     this.props.getPlans();
   }
 
   render() {
+    let plansList = [];
+    if (this.state.plans != null && this.state.plans.length > 0) {
+      for (let plan of this.state.plans) {
+        plansList.push(<div key={plan.key}>{plan.title}</div>);
+      }
+    }
     return (
       <div>
         LandingPage
+        {plansList}
       </div>
     );
   }
