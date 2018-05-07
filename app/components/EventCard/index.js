@@ -49,7 +49,17 @@ const Section = styled.span`
 `;
 
 const Button = styled.button`
-	color: ${props => props.color ? props.color : "white"}
+	color: ${props => props.color ? props.color : "white"};
+	&:focus {
+		outline: none;
+	};
+	transition: all .2s ease-in-out;
+	&:hover {
+		transform: scale(1.3);
+	};
+	&:active {
+		opacity: 0.5;
+	}
 `;
 
 const backgroundColor = {
