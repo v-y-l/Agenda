@@ -70,6 +70,12 @@ const Button = styled.button`
     }
 `;
 
+const Label = styled.label`
+    &:hover {
+        cursor: pointer;
+    };
+`;
+
 class EventOptionsItem extends React.Component { // eslint-disable-line react/prefer-stateless-function
   
   constructor(props) {
@@ -122,7 +128,7 @@ class EventOptionsItem extends React.Component { // eslint-disable-line react/pr
 	      		onChange={this.handleChange}
 	      		onBlur={this.handleBlur}
 	      		time={this.state.time}
-	      	/> <label htmlFor={optionKey}> min </label>
+	      	/> <Label htmlFor={optionKey}> min </Label>
 	    </InputBox>
       	<span> {title} </span>
       	<span> <Button onClick={handleOnClick}>+</Button> </span>

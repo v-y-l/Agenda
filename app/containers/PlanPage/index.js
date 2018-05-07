@@ -97,6 +97,7 @@ export class PlanPage extends React.Component { // eslint-disable-line react/pre
     super(props);
     this.state = {
       planKey: "",
+      planName: "10x",
       eventOptions: [],
       schedule: [],
     };
@@ -109,7 +110,7 @@ export class PlanPage extends React.Component { // eslint-disable-line react/pre
   render() {
     return (
       <PageContainer>
-        <Text size={64}> 10x </Text>
+        <Text size={64}> {this.state.planName} </Text>
         <ContentContainer>
           <OptionsContainer>
 

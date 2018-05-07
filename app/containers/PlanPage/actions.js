@@ -7,6 +7,7 @@
 import {
   DEFAULT_ACTION,
   GET_PLAN_ACTION,
+  SET_PLAN_NAME_ACTION,
   SET_PLAN_KEY_ACTION,
   SET_EVENT_OPTIONS_ACTION,
   SET_SCHEDULE_ACTION,
@@ -31,6 +32,13 @@ function setPlanKeyAction(key) {
   return {
     type: SET_PLAN_KEY_ACTION,
     key: key,
+  }
+}
+
+function setPlanNameAction(planName) {
+  return {
+    type: SET_PLAN_NAME_ACTION,
+    planName: planName,
   }
 }
 
@@ -68,6 +76,7 @@ export {
   defaultAction,
   getPlanAction,
   setPlanKeyAction,
+  setPlanNameAction,
   setEventOptionsAction,
   setScheduleAction,
   deleteScheduleItemAction,

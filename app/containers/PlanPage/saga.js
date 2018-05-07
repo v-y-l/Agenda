@@ -11,6 +11,7 @@ import {
 	setPlanKeyAction,
 	setEventOptionsAction,
 	setScheduleAction,
+  setPlanNameAction,
   deleteScheduleItemAction,
 } from './actions';
 
@@ -26,7 +27,8 @@ export function* getPlanData(api, action) {
   if (plan != null) {
   	yield put(setPlanKeyAction(action.key));
   	yield put(setEventOptionsAction(plan.eventOptions));
-  	yield put(setScheduleAction(plan.schedule));
+    yield put(setScheduleAction(plan.schedule));
+  	yield put(setPlanNameAction(plan.title));
   } else {
   	// TODO: implement error handling
   	console.log("Failed to get plan data!");
