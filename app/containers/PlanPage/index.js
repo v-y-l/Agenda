@@ -27,6 +27,35 @@ import {
   addScheduleItemAction,
 } from './actions';
 
+const PageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 1000px;
+  width: 100%;
+`;
+
+const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 800px;
+  justify-content: space-evenly;
+`;
+
+const OptionsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+`;
+
+const ScheduleContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 500px;
+`;
+
 const StyledLink = styled(Link)`
   display: inline-block;
   border-radius: 3px;
@@ -54,7 +83,7 @@ export class PlanPage extends React.Component { // eslint-disable-line react/pre
       planKey: "",
       eventOptions: [],
       schedule: [],
-    }
+    };
   }
 
   componentDidMount() {
@@ -63,21 +92,28 @@ export class PlanPage extends React.Component { // eslint-disable-line react/pre
 
   render() {
     return (
-      <div>
+      <PageContainer>
         <h1> 10x </h1>
+        <ContentContainer>
+          <OptionsContainer>
 
-        <h3> Add an event to your 10x schedule </h3>
-        <EventOptions
-          eventOptions={this.state.eventOptions}
-          handleAddScheduleItem={this.props.addScheduleItem}
-        />
-        <h3> Your 10x schedule </h3>
-        <Schedule 
-          schedule={this.state.schedule} 
-          handleDeleteScheduleItem={this.props.deleteScheduleItem}
-        />
-        <StyledLink to={"/run/"+this.state.planKey}> Run </StyledLink>
-      </div>
+            <h3> Add an event </h3>
+            <EventOptions
+              eventOptions={this.state.eventOptions}
+              handleAddScheduleItem={this.props.addScheduleItem}
+            />
+            <StyledLink to={"/run/"+this.state.planKey}> Run </StyledLink>
+
+          </OptionsContainer>
+          <ScheduleContainer>
+            <h3> Your 10x schedule </h3>
+            <Schedule 
+              schedule={this.state.schedule} 
+              handleDeleteScheduleItem={this.props.deleteScheduleItem}
+            />
+          </ScheduleContainer>
+        </ContentContainer>
+      </PageContainer>
     );
   }
 }

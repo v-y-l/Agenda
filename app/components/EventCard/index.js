@@ -189,7 +189,7 @@ class EventCard extends React.Component { // eslint-disable-line react/prefer-st
     }
     return (
         <CardContainer>
-            {isLast && <Confetti height="800px" width="1000px" />}
+            {isLast && <Confetti height={800} width={1000} />}
             <Button disabled={isFirst} color={getBackground(title)} onClick={prevEvent}>
                 <Icon size={42} icon={thinLeft} />
             </Button>
