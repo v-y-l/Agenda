@@ -16,7 +16,6 @@ const CardContainer = styled.div`
     font-family: 'Raleway', sans-serif;
     letter-spacing: 2px;
     color: #f0f0f0;
-    margin-top: 45px;
     display:flex;
     justify-content: space-evenly;
     align-items: center;
@@ -36,6 +35,8 @@ const Card = styled.span`
     justify-content: space-evenly;
     align-items: center;
     background: ${props=> props.backgroundColor};
+    padding-left: 5px;
+    padding-right: 5px;
     width: 50%;
     height: 500px;
     border-radius: 3px;
