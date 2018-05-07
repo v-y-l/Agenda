@@ -92,6 +92,7 @@ class EventCard extends React.Component { // eslint-disable-line react/prefer-st
     const { time } = nextProps;
     return {
         isPaused: false,
+        originalTime: time*60*1000,
         time: time*60*1000, //in minutes
     }
   }
@@ -112,8 +113,7 @@ class EventCard extends React.Component { // eslint-disable-line react/prefer-st
 
   reset() {
     this.setState({
-        isPaused: false,
-        time: this.props.time*60*1000,
+        time: this.state.originalTime,
     });
   }
 
@@ -126,7 +126,7 @@ class EventCard extends React.Component { // eslint-disable-line react/prefer-st
   render() {
     const { isLast, time, title, nextEvent, description } = this.props;
 
-    const activityIcon = this.state.isPaused ? <Icon icon={play} /> : <Icon icon={paus} />;
+    const activityIcon = this.state.isPaused ? <Icon size={36} icon={play} /> : <Icon size={36} icon={paus} />;
     let countdown;
     if (this.state.isPaused) {
         let minutes = parseInt(this.state.time/1000/60);
@@ -167,11 +167,11 @@ class EventCard extends React.Component { // eslint-disable-line react/prefer-st
                         {activityIcon}
                     </Button>
                     <Button onClick={this.reset}>
-                        <Icon icon={cw} />
+                        <Icon size={36} icon={cw} />
                     </Button>
                 </Section>
               </Card>
-              <Button color={getBackground(title)}>
+              <Button color={getBackground(title)} onClick={nextEvent}>
                 <Icon size={42} icon={thinRight} />
               </Button>
           </CardContainer>
