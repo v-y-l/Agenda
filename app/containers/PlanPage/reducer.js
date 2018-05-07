@@ -22,6 +22,9 @@ const initialState = fromJS({
 // converts data from key: {title, time} to {key, title, time}
 const convertData = (rawData) => {
 	let data = List();
+  if (!rawData) {
+    return data;
+  }
 	for (let key of Object.keys(rawData)) {
 		let datum = Map({
 			key: key,
