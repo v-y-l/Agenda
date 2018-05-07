@@ -95,7 +95,7 @@ export class RunPage extends React.Component { // eslint-disable-line react/pref
     />);
     return (
       <Container>
-        { events[this.state.atEvent] }
+        { events.length > 1 && events[this.state.atEvent] }
       </Container>
     );
   }

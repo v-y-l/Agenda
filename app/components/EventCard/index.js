@@ -50,15 +50,16 @@ const Section = styled.span`
 
 const Button = styled.button`
     color: ${props => props.color ? props.color : "white"};
+    opacity: ${props => props.disabled ? "0.2" : "1"};
     &:focus {
         outline: none;
     };
     transition: all .2s ease-in-out;
     &:hover {
-        transform: scale(1.3);
+        transform: ${props => props.disabled ? "scale(1)" : "scale(1.3)"};
     };
     &:active {
-        opacity: 0.5;
+        opacity: 0.2;
     }
 `;
 
