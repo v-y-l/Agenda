@@ -16,6 +16,7 @@ import FeaturePage from 'containers/FeaturePage/Loadable';
 // import WwWnPage from 'containers/WwWnPage/Loadable';
 import PlanPage from 'containers/PlanPage/Loadable';
 import RunPage from 'containers/RunPage/Loadable';
+import LandingPage from 'containers/LandingPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 // Remove header + footer for now
 // import Header from 'components/Header';
@@ -42,10 +43,8 @@ export default function App() {
       </Helmet>
       <Switch>
         <Route path="/run/:key" component={RunPage} />
-        <Route path="/home" component={HomePage} />
         <Route path="/plan/:key" component={PlanPage} />
-        <Route path="/features" component={FeaturePage} />
-        <Route path="" component={NotFoundPage} />
+        <Route path="" component={LandingPage} />
       </Switch>
     </AppWrapper>
   );
