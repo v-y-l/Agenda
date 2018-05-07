@@ -30,8 +30,14 @@ import {
 const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: 1000px;
-  width: 100%;
+  width: 820px;
+  margin-top: 50px;
+  background: #DDDDDD;
+  border-radius: 3px;
+  padding-top: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 40px;
 `;
 
 const ContentContainer = styled.div`
@@ -69,6 +75,16 @@ const StyledLink = styled(Link)`
   border-radius: 10px;
 `;
 
+const Text = styled.span`
+    font-size: ${props=>props.size}px;
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction:row;
+    justify-content: space-evenly;
+    width:100%;
+`;
+
 export class PlanPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -93,11 +109,11 @@ export class PlanPage extends React.Component { // eslint-disable-line react/pre
   render() {
     return (
       <PageContainer>
-        <h1> 10x </h1>
+        <Text size={64}> 10x </Text>
         <ContentContainer>
           <OptionsContainer>
 
-            <h3> Add an event </h3>
+            <Text size={48}> Add Events </Text>
             <EventOptions
               eventOptions={this.state.eventOptions}
               handleAddScheduleItem={this.props.addScheduleItem}
@@ -106,7 +122,7 @@ export class PlanPage extends React.Component { // eslint-disable-line react/pre
 
           </OptionsContainer>
           <ScheduleContainer>
-            <h3> Your 10x schedule </h3>
+            <Text size={48}> Schedule </Text>
             <Schedule 
               schedule={this.state.schedule} 
               handleDeleteScheduleItem={this.props.deleteScheduleItem}
