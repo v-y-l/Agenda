@@ -124,24 +124,8 @@ export class LandingPage extends React.Component { // eslint-disable-line react/
     return (
       <div>
         <PageContainer>
-          <Text size={64}> Browse 10x Plans </Text>
+          <Text size={64}> Browse Agendas </Text>
           {plansList}
-        </PageContainer>
-        <PageContainer>
-          <Text size={64}> New Plan </Text>
-          <FormItem>
-            <Label> Plan Name </Label>
-            <Input type="text" placeholder="e.g. Fidelity 10x" />
-          </FormItem>
-          <FormItem>
-            <Label> Number of Presentors </Label>
-            <Input type="text" placeholder="e.g. 5" />
-          </FormItem>
-          <FormItem>
-            <Label> Session in Mins </Label>
-            <Input type="text" placeholder="e.g. 20" />
-          </FormItem>
-          <Button> Create New Plan </Button>
         </PageContainer>
       </div>
     );

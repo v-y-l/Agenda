@@ -13,7 +13,6 @@ import { Switch, Route } from 'react-router-dom';
 
 import HomePage from 'containers/HomePage/Loadable';
 import FeaturePage from 'containers/FeaturePage/Loadable';
-// import WwWnPage from 'containers/WwWnPage/Loadable';
 import PlanPage from 'containers/PlanPage/Loadable';
 import RunPage from 'containers/RunPage/Loadable';
 import LandingPage from 'containers/LandingPage/Loadable';
@@ -35,10 +34,10 @@ export default function App() {
   return (
     <AppWrapper>
       <Helmet
-        titleTemplate="%s - 10x"
-        defaultTitle="10x"
+        titleTemplate="%s - Agenda"
+        defaultTitle="Agenda"
       >
-        <meta name="description" content="10x" />
+        <meta name="description" content="Agenda" />
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
       </Helmet>
       <Switch>
