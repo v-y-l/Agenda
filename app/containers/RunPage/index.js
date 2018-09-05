@@ -70,7 +70,7 @@ export class RunPage extends React.Component { // eslint-disable-line react/pref
     //TODO: Add a feature to create events w/ descriptors
     const descriptions = {
       "Judge": "Please raise the paddle at the start!",
-      "Present": "Victor Lin on 10x project" , 
+      "Present": "Victor Lin on project" , 
       "Leave Feedback": "Please leave feedback for Victor Lin"
     };
     let events = schedule.map((evt, index)=>{
@@ -88,7 +88,7 @@ export class RunPage extends React.Component { // eslint-disable-line react/pref
     events.push(<EventCard 
       key={schedule.length}
       time={0} 
-      title={"10x Complete!"} 
+      title={"Complete!"} 
       isLast={true} 
       nextEvent={()=>console.log("Plan complete")} 
       prevEvent={this.prevEvent}

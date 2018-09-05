@@ -18,7 +18,7 @@ console.log("Creating a plan...");
 
 // Create a plan
 let plan = plans.push({
-    "title": "Default 10x",
+    "title": "Default Agenda",
 });
 
 // Populate it with event options
